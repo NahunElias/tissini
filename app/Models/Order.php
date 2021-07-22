@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Order extends Model
+{
+    use HasFactory;
+
+    //Relación uno a muchos inversa
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    //Relación uno a muchos
+    
+    public function order_details(){
+        return $this->hasMany(Order_Detail::class);
+    }
+
+    public function products(){
+        return $this->hasMany(Product::class);
+    }
+
+}
